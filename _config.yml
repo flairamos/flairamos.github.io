@@ -1,0 +1,4 @@
+deploy:  
+  type: git  
+  repository: https://github.com/flairamos/flairamos.github.io.git
+  branch: main
