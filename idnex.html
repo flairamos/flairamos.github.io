@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>优化后的博客系统页面</title>
+  <style>
+    /* 全局样式 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* 导航栏样式 */
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 15px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* 主体容器样式 */
+    .main-container {
+      width: 90%;
+      margin: 20px auto;
+      display: flex;
+      gap: 20px;
+    }
+
+    /* 文章列表区样式 */
+    .article-list {
+      flex: 2;
+      background-color: white;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .article {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .article.has-image {
+      display: flex;
+    }
+
+    .article.has-image .article-image {
+      width: 200px;
+      margin-right: 20px;
+    }
+
+    .article.has-image .article-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .article.has-image .article-content {
+      flex: 1;
+    }
+
+    .article h2 {
+      margin: 0 0 10px 0;
+    }
+
+    .article-meta {
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .article-excerpt {
+      line-height: 1.6;
+    }
+
+    /* 右侧侧边栏样式 */
+    .sidebar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-section {
+      background-color: white;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .sidebar-section h3 {
+      margin: 0 0 10px 0;
+    }
+
+    .sidebar-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar-section ul li {
+      margin-bottom: 5px;
+    }
+
+    .sidebar-section ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* 广告区样式 */
+    .ad {
+      text-align: center;
+    }
+
+    .ad img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 分页样式 */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <nav>
+    <ul>
+      <li><a href="#" id="home-link">首页</a></li>
+      <li><a href="https://github.com/flairamos">GitHub</a></li>
+      <li><a href="https://gitee.com/xvwen">Gitee</a></li>
+    </ul>
+  </nav>
+
+  <!-- 主体内容 -->
+  <div class="main-container">
+    <!-- 文章列表 -->
+    <div class="article-list" id="article-list">
+      <!-- 文章将通过 JavaScript 动态添加 -->
+    </div>
+
+    <!-- 右侧侧边栏 -->
+    <div class="sidebar">
+      <!-- 分类 -->
+      <div class="sidebar-section">
+        <h3>文章分类</h3>
+        <ul>
+          <li><a href="#" data-category="技术分享">技术分享</a></li>
+          <li><a href="#" data-category="生活感悟">生活感悟</a></li>
+          <li><a href="#" data-category="旅行游记">旅行游记</a></li>
+        </ul>
+      </div>
+      <!-- 热门文章 -->
+      <div class="sidebar-section">
+        <h3>热门文章</h3>
+        <ul>
+          <li><a href="#">热门文章1</a></li>
+          <li><a href="#">热门文章2</a></li>
+          <li><a href="#">热门文章3</a></li>
+        </ul>
+      </div>
+      <!-- 友情链接 -->
+      <div class="sidebar-section">
+        <h3>友情链接</h3>
+        <ul>
+          <li><a href="#">链接1</a></li>
+          <li><a href="#">链接2</a></li>
+          <li><a href="#">链接3</a></li>
+        </ul>
+      </div>
+      <!-- 广告区 -->
+      <div class="sidebar-section ad">
+        <img src="https://dummyimage.com/300x200/ff0000/ffffff" alt="广告">
+      </div>
+    </div>
+  </div>
+
+  <!-- 分页按钮 -->
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    const itemsPerPage = 4;
+    let currentPage = 1;
+    let currentCategory = 'all';
+
+    // 文章元数据
+    const articlesMetadata = [
+      {
+        title: 'Go语言后台实现选中式导出excel文件',
+        excerpt: 'Go语言后台实现选中式导出excel文件。本文将带你快速入门 GO excel，介绍基本的Go语言控制excel文件。',
+        category: '技术分享',
+        link: 'articles/技术分享/Go语言后台实现选中式导出excel文件.html'
+      },
+      {
+        title: '生活中的小确幸',
+        excerpt: '生活中总有一些小小的幸福瞬间，比如清晨的第一缕阳光、一杯香浓的咖啡。这些小确幸让生活变得更加美好。',
+        category: '生活感悟',
+        link: 'articles/生活感悟/life-moments.html'
+      },
+      {
+        title: '巴黎之旅',
+        excerpt: '巴黎是一座充满浪漫气息的城市，埃菲尔铁塔、卢浮宫等景点让人陶醉。这次巴黎之旅让我收获颇丰。',
+        category: '旅行游记',
+        link: 'articles/旅行游记/paris-trip.html'
+      },
+      {
+        title: '前端开发的新趋势',
+        excerpt: '随着技术的不断发展，前端开发也有了许多新的趋势，如 React、Vue.js 等框架的广泛应用。本文将为你介绍这些新趋势。',
+        category: '技术分享',
+        link: 'articles/技术分享/frontend-trends.html'
+      },
+      {
+        title: '健身的好处',
+        excerpt: '健身不仅可以让我们拥有健康的身体，还能提高我们的心理素质。本文将详细介绍健身的好处。',
+        category: '生活感悟',
+        link: 'articles/生活感悟/fitness-benefits.html'
+      },
+      {
+        title: '日本美食之旅',
+        excerpt: '日本美食丰富多样，寿司、拉面、天妇罗等让人垂涎欲滴。这次日本美食之旅让我大饱口福。',
+        category: '旅行游记',
+        link: 'articles/旅行游记/japan-food-trip.html'
+      }
+    ];
+
+    function getArticlesByCategory(category) {
+      if (category === 'all') {
+        return articlesMetadata;
+      }
+      return articlesMetadata.filter(article => article.category === category);
+    }
+
+    function displayArticles() {
+      const articles = getArticlesByCategory(currentCategory);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const currentArticles = articles.slice(startIndex, endIndex);
+
+      const articleList = document.getElementById('article-list');
+      articleList.innerHTML = '';
+
+      currentArticles.forEach(article => {
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('article');
+        articleElement.innerHTML = `
+          <h2><a href="${article.link}">${article.title}</a></h2>
+          <div class="article-meta">
+            分类：${article.category}
+          </div>
+          <div class="article-excerpt">
+            <p>
+              <a href="${article.link}">${article.excerpt}</a>
+            </p>
+          </div>
+        `;
+        articleList.appendChild(articleElement);
+      });
+    }
+
+    function displayPagination() {
+      const articles = getArticlesByCategory(currentCategory);
+      const totalPages = Math.ceil(articles.length / itemsPerPage);
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.addEventListener('click', () => {
+          currentPage = i;
+          displayArticles();
+        });
+        if (i === currentPage) {
+          button.disabled = true;
+        }
+        pagination.appendChild(button);
+      }
+    }
+
+    // 分类点击事件
+    const categoryLinks = document.querySelectorAll('.sidebar-section ul li a');
+    categoryLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentCategory = link.dataset.category;
+        currentPage = 1;
+        displayArticles();
+        displayPagination();
+      });
+    });
+
+    // 首页点击事件
+    const homeLink = document.getElementById('home-link');
+    homeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      currentCategory = 'all';
+      currentPage = 1;
+      displayArticles();
+      displayPagination();
+    });
+
+    // 初始化显示文章和分页
+    displayArticles();
+    displayPagination();
+  </script>
+</body>
+
+</html>    

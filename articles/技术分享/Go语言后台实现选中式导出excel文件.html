@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go语言后台实现选中式导出excel文件</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><p>实现选中导出为excel文件的基本实现方案是前端将选中的数据传递给后端，后台接受这些数据生成excel文件的流，将流返回给前端并在响应体设置文件的格式。</p>
+<p><img src="https://i-blog.csdnimg.cn/direct/d6dc45f63a9444449e431bb144844c6e.png" alt="在这里插入图片描述"><br>
+<img src="https://i-blog.csdnimg.cn/direct/3a2eaa52dd3448b0a3fd7fd9549b1490.png" alt="在这里插入图片描述"><br>
+<img src="https://i-blog.csdnimg.cn/direct/b0866cd8397e45f78e69e353fb5e534e.png" alt="在这里插入图片描述"><br>
+这时只要将需要下载的数据提交到改接口就会返回文件流数据，提供下载。具体实现代码如下：</p>
+<ul>
+<li>工具库</li>
+</ul>
+<p><code>https://github.com/douyacun/go-struct-excel</code></p>
+<pre><code class="prism language-shell">go get github.com/douyacun/go-struct-excel
+</code></pre>
+<blockquote>
+<p>具体的代码实现参考github示例代码</p>
+</blockquote>
+<ul>
+<li>创建导出的结构体</li>
+</ul>
+<pre><code class="prism language-go"><span class="token keyword">type</span> Company <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    ID                    <span class="token builtin">string</span>    <span class="token string">`json:"id" excel:"主键"`</span>
+    Creater               <span class="token builtin">string</span>    <span class="token string">`json:"creater" excel:"创建人"`</span>
+    CreateTime            <span class="token builtin">string</span>    <span class="token string">`json:"create_time" excel:"创建时间"`</span>
+    Updater               <span class="token builtin">string</span>    <span class="token string">`json:"updater" excel:"更新人"`</span>
+    UpdateTime            <span class="token builtin">string</span>    <span class="token string">`json:"update_time" excel:"更新时间"`</span>
+    IsDelete              <span class="token builtin">int32</span>     <span class="token string">`json:"is_delete" excel:"是否删除"`</span>
+    Version               <span class="token builtin">int32</span>     <span class="token string">`json:"version" excel:"版本"`</span>
+    TenantID              <span class="token builtin">string</span>    <span class="token string">`json:"tenant_id" excel:"多版本唯一标识"`</span>
+    CreditCode            <span class="token builtin">string</span>    <span class="token string">`json:"credit_code" excel:"企业社会信用代码"`</span>
+    Name                  <span class="token builtin">string</span>    <span class="token string">`json:"name" excel:"企业名称"`</span>
+    Address               <span class="token builtin">string</span>    <span class="token string">`json:"address" excel:"企业地址"`</span>
+    Type                  <span class="token builtin">string</span>    <span class="token string">`json:"type" excel:"企业类型"`</span>
+    LegalPersonName       <span class="token builtin">string</span>    <span class="token string">`json:"legal_person_name" excel:"企业法人"`</span>
+    LegalPersonIDNo       <span class="token builtin">string</span>    <span class="token string">`json:"legal_person_id_no" excel:"企业法人身份证"`</span>
+    LegalPersonPhoneNo    <span class="token builtin">string</span>    <span class="token string">`json:"legal_person_phone_no" excel:"企业法人电话"`</span>
+    ContractPersonName    <span class="token builtin">string</span>    <span class="token string">`json:"contract_person_name" excel:"企业联系人姓名"`</span>
+    ContractPersonIDNo    <span class="token builtin">string</span>    <span class="token string">`json:"contract_person_id_no" excel:"企业联系人身份证"`</span>
+    ContractPersonPhoneNo <span class="token builtin">string</span>    <span class="token string">`json:"contract_person_phone_no" excel:"企业联系人联系电话"`</span>
+    RegisterDate          <span class="token builtin">string</span>    <span class="token string">`json:"register_date" excel:"注册时间"`</span>
+    Remark                <span class="token builtin">string</span>    <span class="token string">`json:"remark" excel:"备注"`</span>
+    Lon                   <span class="token builtin">float64</span>   <span class="token string">`json:"lon" excel:"经度"`</span>
+    Lat                   <span class="token builtin">float64</span>   <span class="token string">`json:"lat" excel:"纬度"`</span>
+    Geom                  <span class="token builtin">string</span>    <span class="token string">`json:"geom" excel:"位置信息"`</span>
+    ProvinceID            <span class="token builtin">string</span>    <span class="token string">`json:"province_id" excel:"省级编码"`</span>
+    CityID                <span class="token builtin">string</span>    <span class="token string">`json:"city_id" excel:"市级编码"`</span>
+    AreaID                <span class="token builtin">string</span>    <span class="token string">`json:"area_id" excel:"区级编码"`</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><code>json</code>标签的作用用于结构体来自前端的数据，<code>excel</code>的标签用户生成excel的表头。</p>
+</blockquote>
+<ul>
+<li>生成excel的文件流</li>
+</ul>
+<pre><code class="prism language-go"><span class="token comment">// 导出为excel文件流</span>
+<span class="token comment">// T为任意了类型</span>
+<span class="token comment">// data参数为T类型的指针数组，必须是指针数组</span>
+<span class="token comment">// name为导出的问加盟</span>
+<span class="token keyword">func</span> Export<span class="token punctuation">[</span>T any<span class="token punctuation">]</span><span class="token punctuation">(</span>data <span class="token punctuation">[</span><span class="token punctuation">]</span>T<span class="token punctuation">,</span> name <span class="token builtin">string</span><span class="token punctuation">,</span> sheetName <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// helloworld.xlsx</span>
+	<span class="token keyword">if</span> name <span class="token operator">==</span> <span class="token string">""</span> <span class="token punctuation">{</span>
+		name <span class="token operator">=</span> <span class="token string">"test.xlsx"</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>strings<span class="token punctuation">.</span><span class="token function">Contains</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">".xlsx"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		name <span class="token operator">=</span> name <span class="token operator">+</span> <span class="token string">".xlsx"</span>
+	<span class="token punctuation">}</span>
+	excel <span class="token operator">:=</span> ex<span class="token punctuation">.</span><span class="token function">NewExcel</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+	<span class="token keyword">defer</span> excel<span class="token punctuation">.</span>File<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	sheet<span class="token punctuation">,</span> err <span class="token operator">:=</span> excel<span class="token punctuation">.</span><span class="token function">AddSheet</span><span class="token punctuation">(</span>sheetName<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> err
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> err <span class="token operator">=</span> sheet<span class="token punctuation">.</span><span class="token function">AddData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> err
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> excel<span class="token punctuation">.</span><span class="token function">Bytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>这里包装了一下，数据使用指针数组传递，同时传递exel文件名和sheet页数</p>
+</blockquote>
+<ul>
+<li>接口返回文件流</li>
+</ul>
+<pre><code class="prism language-go"><span class="token comment">// 导出企业库</span>
+<span class="token keyword">func</span> <span class="token function">ExportCom</span><span class="token punctuation">(</span>c <span class="token operator">*</span>fiber<span class="token punctuation">.</span>Ctx<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> req <span class="token punctuation">[</span><span class="token punctuation">]</span>model<span class="token punctuation">.</span>BaseCompanyCopy
+
+	<span class="token keyword">if</span> err <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">BodyParser</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>req<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> http_resp<span class="token punctuation">.</span><span class="token function">Fail</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> <span class="token string">"参数错误"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">var</span> data <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>excel<span class="token punctuation">.</span>Company
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		tmp <span class="token operator">:=</span> utils<span class="token punctuation">.</span>StructTimeCopy<span class="token punctuation">[</span>model<span class="token punctuation">.</span>BaseCompanyCopy<span class="token punctuation">,</span> excel<span class="token punctuation">.</span>Company<span class="token punctuation">]</span><span class="token punctuation">(</span>req<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+		data <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token operator">&amp;</span>tmp<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	export<span class="token punctuation">,</span> err <span class="token operator">:=</span> excel<span class="token punctuation">.</span>Export<span class="token punctuation">[</span><span class="token operator">*</span>excel<span class="token punctuation">.</span>Company<span class="token punctuation">]</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token string">"企业信息"</span><span class="token punctuation">,</span> <span class="token string">"企业信息"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> http_resp<span class="token punctuation">.</span><span class="token function">Fail</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> <span class="token string">"导出失败"</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	c<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Content-Disposition"</span><span class="token punctuation">,</span> <span class="token string">"attachment; filename=file"</span><span class="token operator">+</span><span class="token string">".xlsx"</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> c<span class="token punctuation">.</span><span class="token function">Send</span><span class="token punctuation">(</span>export<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>这里使用fiber的web框架<code>ctx.Set()</code>这部很重要，用户设置文件的下载文件的名称。</p>
+</blockquote>
+</div>
+</body>
+
+</html>
