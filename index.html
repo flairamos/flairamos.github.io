@@ -1,335 +1,659 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>优化后的博客系统页面</title>
-  <style>
-    /* 全局样式 */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    /* 导航栏样式 */
-    nav {
-      background-color: #333;
-      color: white;
-      padding: 15px 0;
-    }
-
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-    }
-
-    /* 主体容器样式 */
-    .main-container {
-      width: 90%;
-      margin: 20px auto;
-      display: flex;
-      gap: 20px;
-    }
-
-    /* 文章列表区样式 */
-    .article-list {
-      flex: 2;
-      background-color: white;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-
-    .article {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
-    }
-
-    .article.has-image {
-      display: flex;
-    }
-
-    .article.has-image .article-image {
-      width: 200px;
-      margin-right: 20px;
-    }
-
-    .article.has-image .article-image img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .article.has-image .article-content {
-      flex: 1;
-    }
-
-    .article h2 {
-      margin: 0 0 10px 0;
-    }
-
-    .article-meta {
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    .article-excerpt {
-      line-height: 1.6;
-    }
-
-    /* 右侧侧边栏样式 */
-    .sidebar {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .sidebar-section {
-      background-color: white;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-
-    .sidebar-section h3 {
-      margin: 0 0 10px 0;
-    }
-
-    .sidebar-section ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .sidebar-section ul li {
-      margin-bottom: 5px;
-    }
-
-    .sidebar-section ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-
-    /* 广告区样式 */
-    .ad {
-      text-align: center;
-    }
-
-    .ad img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* 分页样式 */
-    .pagination {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .pagination button {
-      margin: 0 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- 导航栏 -->
-  <nav>
-    <ul>
-      <li><a href="#" id="home-link">首页</a></li>
-      <li><a href="https://github.com/flairamos">GitHub</a></li>
-      <li><a href="https://gitee.com/xvwen">Gitee</a></li>
-    </ul>
-  </nav>
-
-  <!-- 主体内容 -->
-  <div class="main-container">
-    <!-- 文章列表 -->
-    <div class="article-list" id="article-list">
-      <!-- 文章将通过 JavaScript 动态添加 -->
-    </div>
-
-    <!-- 右侧侧边栏 -->
-    <div class="sidebar">
-      <!-- 分类 -->
-      <div class="sidebar-section">
-        <h3>文章分类</h3>
-        <ul>
-          <li><a href="#" data-category="技术分享">技术分享</a></li>
-          <li><a href="#" data-category="生活感悟">生活感悟</a></li>
-          <li><a href="#" data-category="旅行游记">旅行游记</a></li>
-        </ul>
-      </div>
-      <!-- 热门文章 -->
-      <div class="sidebar-section">
-        <h3>热门文章</h3>
-        <ul>
-          <li><a href="#">热门文章1</a></li>
-          <li><a href="#">热门文章2</a></li>
-          <li><a href="#">热门文章3</a></li>
-        </ul>
-      </div>
-      <!-- 友情链接 -->
-      <div class="sidebar-section">
-        <h3>友情链接</h3>
-        <ul>
-          <li><a href="#">链接1</a></li>
-          <li><a href="#">链接2</a></li>
-          <li><a href="#">链接3</a></li>
-        </ul>
-      </div>
-      <!-- 广告区 -->
-      <div class="sidebar-section ad">
-        <img src="https://dummyimage.com/300x200/ff0000/ffffff" alt="广告">
-      </div>
-    </div>
-  </div>
-
-  <!-- 分页按钮 -->
-  <div class="pagination" id="pagination"></div>
-
-  <script>
-    const itemsPerPage = 4;
-    let currentPage = 1;
-    let currentCategory = 'all';
-
-    // 文章元数据
-    const articlesMetadata = [
-      {
-        title: 'Go语言后台实现选中式导出excel文件',
-        excerpt: 'Go语言后台实现选中式导出excel文件。本文将带你快速入门 GO excel，介绍基本的Go语言控制excel文件。',
-        category: '技术分享',
-        link: 'articles/技术分享/Go语言后台实现选中式导出excel文件.html'
+  <meta name="theme-color" content="#0d1712">
+  <title>flairamos — Backend Engineer</title>
+  <meta name="description" content="flairamos（FlairAmos）的个人主页。Java / Go 后端工程师，熟悉 Vue、Linux 与 Docker，提供后端开发、全栈交付、毕业设计与技术咨询服务。">
+  <meta name="author" content="flairamos">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="flairamos">
+  <meta property="og:url" content="https://flairamos.github.io/">
+  <meta property="og:title" content="flairamos — Backend Engineer">
+  <meta property="og:description" content="Java / Go 后端工程师，从第一行代码到稳定上线。开放开发合作、毕业设计与技术咨询。">
+  <meta property="og:image" content="https://flairamos.github.io/assets/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="flairamos — Backend Engineer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="flairamos — Backend Engineer">
+  <meta name="twitter:description" content="Java / Go 后端工程师，从第一行代码到稳定上线。开放开发合作、毕业设计与技术咨询。">
+  <meta name="twitter:image" content="https://flairamos.github.io/assets/img/og-cover.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo-black.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "flairamos",
+      "alternateName": "FlairAmos",
+      "url": "https://flairamos.github.io/",
+      "image": "https://flairamos.github.io/assets/img/flairamos-avatar.jpg",
+      "jobTitle": "Backend Engineer",
+      "email": "mailto:flairamos@outlook.com",
+      "knowsAbout": ["Java", "Go", "Vue", "Linux", "Docker", "RESTful APIs"],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "North China Institute of Aerospace Engineering"
       },
-      {
-        title: '生活中的小确幸',
-        excerpt: '生活中总有一些小小的幸福瞬间，比如清晨的第一缕阳光、一杯香浓的咖啡。这些小确幸让生活变得更加美好。',
-        category: '生活感悟',
-        link: 'articles/生活感悟/life-moments.html'
-      },
-      {
-        title: '巴黎之旅',
-        excerpt: '巴黎是一座充满浪漫气息的城市，埃菲尔铁塔、卢浮宫等景点让人陶醉。这次巴黎之旅让我收获颇丰。',
-        category: '旅行游记',
-        link: 'articles/旅行游记/paris-trip.html'
-      },
-      {
-        title: '前端开发的新趋势',
-        excerpt: '随着技术的不断发展，前端开发也有了许多新的趋势，如 React、Vue.js 等框架的广泛应用。本文将为你介绍这些新趋势。',
-        category: '技术分享',
-        link: 'articles/技术分享/frontend-trends.html'
-      },
-      {
-        title: '健身的好处',
-        excerpt: '健身不仅可以让我们拥有健康的身体，还能提高我们的心理素质。本文将详细介绍健身的好处。',
-        category: '生活感悟',
-        link: 'articles/生活感悟/fitness-benefits.html'
-      },
-      {
-        title: '日本美食之旅',
-        excerpt: '日本美食丰富多样，寿司、拉面、天妇罗等让人垂涎欲滴。这次日本美食之旅让我大饱口福。',
-        category: '旅行游记',
-        link: 'articles/旅行游记/japan-food-trip.html'
-      }
-    ];
-
-    function getArticlesByCategory(category) {
-      if (category === 'all') {
-        return articlesMetadata;
-      }
-      return articlesMetadata.filter(article => article.category === category);
+      "sameAs": [
+        "https://github.com/flairamos",
+        "https://gitee.com/xvwen"
+      ]
     }
-
-    function displayArticles() {
-      const articles = getArticlesByCategory(currentCategory);
-      const startIndex = (currentPage - 1) * itemsPerPage;
-      const endIndex = startIndex + itemsPerPage;
-      const currentArticles = articles.slice(startIndex, endIndex);
-
-      const articleList = document.getElementById('article-list');
-      articleList.innerHTML = '';
-
-      currentArticles.forEach(article => {
-        const articleElement = document.createElement('div');
-        articleElement.classList.add('article');
-        articleElement.innerHTML = `
-          <h2><a href="${article.link}">${article.title}</a></h2>
-          <div class="article-meta">
-            分类：${article.category}
-          </div>
-          <div class="article-excerpt">
-            <p>
-              <a href="${article.link}">${article.excerpt}</a>
-            </p>
-          </div>
-        `;
-        articleList.appendChild(articleElement);
-      });
-    }
-
-    function displayPagination() {
-      const articles = getArticlesByCategory(currentCategory);
-      const totalPages = Math.ceil(articles.length / itemsPerPage);
-      const pagination = document.getElementById('pagination');
-      pagination.innerHTML = '';
-
-      for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
-        button.textContent = i;
-        button.addEventListener('click', () => {
-          currentPage = i;
-          displayArticles();
-        });
-        if (i === currentPage) {
-          button.disabled = true;
-        }
-        pagination.appendChild(button);
-      }
-    }
-
-    // 分类点击事件
-    const categoryLinks = document.querySelectorAll('.sidebar-section ul li a');
-    categoryLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        currentCategory = link.dataset.category;
-        currentPage = 1;
-        displayArticles();
-        displayPagination();
-      });
-    });
-
-    // 首页点击事件
-    const homeLink = document.getElementById('home-link');
-    homeLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      currentCategory = 'all';
-      currentPage = 1;
-      displayArticles();
-      displayPagination();
-    });
-
-    // 初始化显示文章和分页
-    displayArticles();
-    displayPagination();
   </script>
-</body>
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
 
-</html>    
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="flairamos，返回首页">
+        <span class="brand-mark" aria-hidden="true">f</span>
+        <span class="brand-word">flairamos</span>
+        <span class="brand-status" title="Available for collaboration"></span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="主导航">
+        <a class="nav-link is-active" href="#home" data-nav="home">Home</a>
+        <a class="nav-link" href="#about" data-nav="about">About</a>
+        <a class="nav-link" href="#service" data-nav="service">Service</a>
+        <a class="nav-link" href="#project" data-nav="project">Project</a>
+        <a class="nav-link" href="#review" data-nav="review">Review</a>
+      </nav>
+
+      <a class="header-cta" href="#contact">
+        <span>Let's Collaborate</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="打开菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01 / HOME -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-orb hero-orb-a"></div>
+        <div class="hero-orb hero-orb-b"></div>
+        <div class="hero-orb hero-orb-c"></div>
+        <svg class="hero-landscape" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#47785b" stop-opacity=".58"/>
+              <stop offset="1" stop-color="#0e2e20" stop-opacity=".05"/>
+            </linearGradient>
+            <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6f9d5c" stop-opacity=".78"/>
+              <stop offset=".5" stop-color="#315f42" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#0d261a" stop-opacity=".06"/>
+            </linearGradient>
+            <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#9fc978" stop-opacity=".8"/>
+              <stop offset=".48" stop-color="#467a4f" stop-opacity=".5"/>
+              <stop offset="1" stop-color="#06170f" stop-opacity=".12"/>
+            </linearGradient>
+            <linearGradient id="hillGlow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#dcff8a" stop-opacity=".18"/>
+              <stop offset="1" stop-color="#dcff8a" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="softBlur">
+              <feGaussianBlur stdDeviation="18"/>
+            </filter>
+          </defs>
+
+          <ellipse cx="1020" cy="690" rx="520" ry="230" fill="url(#hillGlow)" filter="url(#softBlur)"/>
+          <path class="hill hill-far" d="M-80 618C160 505 300 562 470 526c190-40 300-148 484-126 175 21 252 120 586 90v410H-80Z" fill="url(#hillFar)"/>
+          <path class="hill hill-mid" d="M-80 692c188-107 352-118 546-59 208 63 313 14 478-39 145-47 286-31 576 94v212H-80Z" fill="url(#hillMid)"/>
+          <path class="hill hill-near" d="M-60 780c260-117 391-7 584-53 207-49 295-131 484-84 133 34 266 85 472 35v222H-60Z" fill="url(#hillNear)"/>
+
+          <g class="contour-lines" fill="none" stroke="#d6ff91" stroke-width="1">
+            <path d="M-20 653c180-85 324-58 483-90 168-34 272-105 420-88 143 16 238 77 577 46" opacity=".24"/>
+            <path d="M-20 686c199-91 349-61 512-94 163-34 269-94 411-75 156 22 247 75 557 52" opacity=".18"/>
+            <path d="M-20 723c225-89 384-44 545-84 159-39 269-105 427-80 156 24 266 81 508 44" opacity=".15"/>
+            <path d="M-20 765c222-73 392-29 548-60 173-35 277-93 436-62 146 28 272 79 496 29" opacity=".12"/>
+          </g>
+
+          <g class="landscape-sparks" fill="#e8ff9f">
+            <circle cx="236" cy="590" r="2" opacity=".8"/>
+            <circle cx="900" cy="603" r="1.6" opacity=".55"/>
+            <circle cx="1107" cy="803" r="2.2" opacity=".7"/>
+            <circle cx="746" cy="731" r="1.4" opacity=".5"/>
+            <circle cx="1299" cy="673" r="1.5" opacity=".5"/>
+            <circle cx="438" cy="807" r="1.8" opacity=".55"/>
+          </g>
+
+          <g class="landscape-code" fill="none" stroke="#d9ff80" stroke-width=".8" opacity=".2">
+            <path d="M970 565h98v68h-98zM1002 565v-38h132v59h-64"/>
+            <path d="M1187 661h76v53h-76zM1225 714v41h-81"/>
+            <path d="M112 703h84v-58h97"/>
+          </g>
+        </svg>
+        <div class="hero-grain"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-topline">
+          <p>Independent engineer <span>·</span> China <span>·</span> UTC+8</p>
+          <p class="availability"><span class="status-dot"></span> Open to freelance &amp; collaboration</p>
+        </div>
+
+        <h1 class="hero-title" id="hero-title">
+          <span class="hero-word hero-word-top">BACKEND</span>
+          <span class="hero-word hero-word-bottom">ENGINEER</span>
+        </h1>
+
+        <div class="hero-avatar-block" aria-label="GitHub 头像与用户名">
+          <span class="avatar-orbit" aria-hidden="true"></span>
+          <div class="avatar-frame">
+            <img src="assets/img/flairamos-avatar.jpg" width="400" height="400" alt="flairamos 的 GitHub 头像" fetchpriority="high">
+          </div>
+          <div class="avatar-copy">
+            <span class="micro-label">GITHUB / 125383416</span>
+            <strong>flairamos</strong>
+            <span>Backend Developer</span>
+          </div>
+        </div>
+
+        <div class="hero-terminal" aria-hidden="true">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+            <em>~/flairamos</em>
+          </div>
+          <pre><code><span class="c-dim">// build things that last</span>
+<span class="c-lime">func</span> <span class="c-blue">ship</span>(idea Idea) Product {
+  <span class="c-lime">return</span> design(idea).
+    build().
+    deploy()
+}</code></pre>
+          <div class="terminal-foot"><span>go 1.24</span><span>linux / docker</span><span class="terminal-cursor"></span></div>
+        </div>
+
+        <div class="hero-bottom">
+          <a class="scroll-cue" href="#about">
+            <span class="scroll-cue-icon" aria-hidden="true"><i></i></span>
+            <span>Scroll to explore</span>
+          </a>
+
+          <p class="hero-intro">
+            I build reliable backend systems and thoughtful digital products —
+            <em>from the first schema to production.</em>
+          </p>
+
+          <div class="hero-id-card">
+            <div class="id-card-top">
+              <span class="micro-label">THE PERSON BEHIND THE CODE</span>
+              <a href="https://github.com/flairamos" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看 flairamos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.82c.56.1.77-.24.77-.53v-2.05c-3.12.68-3.78-1.32-3.78-1.32-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.49-.29-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.11 2.96.72.78 1.16 1.78 1.16 3 0 4.3-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.08c0 .3.2.64.78.53A11.2 11.2 0 0 0 12 .8Z" fill="currentColor"/></svg>
+              </a>
+            </div>
+            <strong class="id-card-name">FLAIRAMOS</strong>
+            <div class="id-card-meta">
+              <span>Backend Engineer</span>
+              <span class="id-card-sep"></span>
+              <span>Java / Go</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / ABOUT -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="section-kicker reveal">
+          <span class="section-index">02</span>
+          <span>ABOUT ME</span>
+          <span class="kicker-line" aria-hidden="true"></span>
+          <span class="kicker-note">A little context</span>
+        </div>
+
+        <div class="about-head">
+          <h2 class="display-title reveal" id="about-title">
+            Backend by craft.<br>
+            <em>Product by heart.</em>
+          </h2>
+          <p class="section-lead reveal">
+            比起“把功能做出来”，我更关心系统能否在真实世界里稳定运行、持续演进。
+            从业务建模到部署上线，我习惯把整条链路想清楚。
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-story reveal">
+            <p class="dropcap">我是 flairamos，一名后端工程师。日常工作围绕 Java 与 Go 展开：设计接口、梳理业务模型、处理数据流，并让服务在真实流量下保持稳定。</p>
+            <p>前端方面，我了解 Vue，能够完成页面与 API 的联调，也愿意从用户体验反推后端设计。熟悉 Linux 环境，理解从需求分析、系统设计、编码测试，到容器化部署、上线监控与持续迭代的完整开发链路。Docker 有基础使用经验，正在持续深入云原生与自动化部署。</p>
+            <p>比起堆叠功能，我更在意代码的可读性、边界是否清晰，以及半年后还能不能轻松维护。好的后端应该安静、可靠，并且在需要的时候容易理解。</p>
+            <div class="about-actions">
+              <a class="text-link" href="mailto:flairamos@outlook.com">
+                <span>聊聊你的想法</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a class="text-link text-link--muted" href="https://github.com/flairamos" target="_blank" rel="noopener noreferrer">
+                <span>GitHub / flairamos</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+            <div class="about-note">
+              <div class="about-note-inner">
+                <div>
+                  <span class="micro-label">A SMALL PRINCIPLE</span>
+                  <p>先把问题想清楚，再写第一行代码。</p>
+                </div>
+                <span class="about-note-index">/ 01</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="about-profile reveal">
+            <div class="profile-photo">
+              <img src="assets/img/flairamos-avatar.jpg" width="400" height="400" alt="flairamos 的头像" loading="lazy">
+              <span class="profile-stamp">BASED IN CHINA<br>OPEN TO REMOTE</span>
+              <span class="profile-arrow" aria-hidden="true">↘</span>
+            </div>
+            <dl class="fact-list">
+              <div><dt>Role</dt><dd>Backend Engineer</dd></div>
+              <div><dt>Focus</dt><dd>Java · Go · APIs</dd></div>
+              <div><dt>Frontend</dt><dd>Vue · HTML / CSS</dd></div>
+              <div><dt>Ops</dt><dd>Linux · Docker · CI/CD</dd></div>
+              <div><dt>Status</dt><dd><span class="status-dot"></span> Open for projects</dd></div>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="stack-head reveal">
+          <span class="micro-label">TOOLBOX / WHAT I WORK WITH</span>
+          <p>不追求把清单写满，只保留真正能解决问题的能力。</p>
+        </div>
+
+        <div class="stack-grid">
+          <article class="stack-card stack-card--ink reveal">
+            <div class="stack-card-top">
+              <span class="stack-icon" aria-hidden="true">{ }</span>
+              <span class="stack-number">01</span>
+            </div>
+            <h3>Backend</h3>
+            <p>业务服务、接口设计与数据处理。关注稳定性、性能与清晰的领域边界。</p>
+            <ul class="tag-list" aria-label="后端技术">
+              <li>Java</li><li>Go</li><li>RESTful API</li><li>MySQL</li><li>Redis</li>
+            </ul>
+          </article>
+
+          <article class="stack-card stack-card--lime reveal">
+            <div class="stack-card-top">
+              <span class="stack-icon" aria-hidden="true">&lt;/&gt;</span>
+              <span class="stack-number">02</span>
+            </div>
+            <h3>Frontend</h3>
+            <p>能把界面和接口接到一起，也理解页面背后的数据应该怎样组织。</p>
+            <ul class="tag-list" aria-label="前端技术">
+              <li>Vue</li><li>JavaScript</li><li>HTML / CSS</li><li>API Integration</li>
+            </ul>
+          </article>
+
+          <article class="stack-card stack-card--paper reveal">
+            <div class="stack-card-top">
+              <span class="stack-icon" aria-hidden="true">$_</span>
+              <span class="stack-number">03</span>
+            </div>
+            <h3>Infrastructure</h3>
+            <p>熟悉 Linux 工作环境，理解服务如何被打包、部署、暴露并持续运行。</p>
+            <ul class="tag-list" aria-label="基础设施技术">
+              <li>Linux</li><li>Docker</li><li>Nginx</li><li>Git</li><li>CI/CD</li>
+            </ul>
+          </article>
+
+          <article class="stack-card stack-card--outline reveal">
+            <div class="stack-card-top">
+              <span class="stack-icon" aria-hidden="true">◎</span>
+              <span class="stack-number">04</span>
+            </div>
+            <h3>Workflow</h3>
+            <p>从需求澄清、数据库设计、编码测试到上线维护，能独立推进完整流程。</p>
+            <ul class="tag-list" aria-label="工作方式">
+              <li>System Design</li><li>Database</li><li>Testing</li><li>Deployment</li><li>Docs</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="process-strip reveal" aria-label="工作流程">
+          <div class="process-label">
+            <span class="micro-label">HOW I WORK</span>
+            <p>From idea to production.</p>
+          </div>
+          <ol class="process-steps">
+            <li><span>01</span><strong>Understand</strong><small>先问清楚为什么</small></li>
+            <li><span>02</span><strong>Design</strong><small>把边界画出来</small></li>
+            <li><span>03</span><strong>Build</strong><small>小步实现与验证</small></li>
+            <li><span>04</span><strong>Ship</strong><small>部署、观察、迭代</small></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moving skills strip -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>JAVA</span><i></i><span>GO</span><i></i><span>VUE</span><i></i><span>LINUX</span><i></i><span>DOCKER</span><i></i><span>REST API</span><i></i><span>CI / CD</span><i></i>
+        <span>JAVA</span><i></i><span>GO</span><i></i><span>VUE</span><i></i><span>LINUX</span><i></i><span>DOCKER</span><i></i><span>REST API</span><i></i><span>CI / CD</span><i></i>
+      </div>
+    </div>
+
+    <!-- 03 / SERVICE -->
+    <section class="section services" id="service" aria-labelledby="services-title">
+      <div class="services-aurora" aria-hidden="true"></div>
+      <div class="services-hill" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <linearGradient id="serviceHill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b7e896" stop-opacity=".42"/>
+              <stop offset="1" stop-color="#072018" stop-opacity=".06"/>
+            </linearGradient>
+          </defs>
+          <path d="M-40 460c240-180 459-73 667-163 186-80 321-210 529-136 142 50 242 124 326 92v387H-40Z" fill="url(#serviceHill)"/>
+          <g fill="none" stroke="#d8ff9a" opacity=".18">
+            <path d="M-40 486c246-167 459-52 675-150 181-82 313-193 515-118 139 51 230 108 300 81"/>
+            <path d="M-40 525c247-138 451-38 670-124 183-72 306-171 511-100 133 46 225 96 299 66"/>
+            <path d="M-40 558c250-103 441-24 664-94 177-56 298-145 501-79 128 41 219 80 315 49"/>
+          </g>
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="section-kicker section-kicker--light reveal">
+          <span class="section-index">03</span>
+          <span>SERVICES</span>
+          <span class="kicker-line" aria-hidden="true"></span>
+          <span class="kicker-note">What I can help with</span>
+        </div>
+
+        <div class="services-head">
+          <h2 class="display-title reveal" id="services-title">
+            Your idea,<br>
+            <em>engineered.</em>
+          </h2>
+          <div class="services-head-copy reveal">
+            <p>有问题可以找我，有想法也可以找我。接开发单、毕业设计、技术咨询，先从一次坦诚的沟通开始。</p>
+            <a class="text-link text-link--light" href="mailto:flairamos@outlook.com">
+              <span>flairamos@outlook.com</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-list">
+          <a class="service-row reveal" href="mailto:flairamos@outlook.com?subject=Backend%20Development%20Inquiry">
+            <span class="service-num">01</span>
+            <div class="service-main">
+              <h3>后端系统开发 <span>Backend Engineering</span></h3>
+              <p>业务系统、API、数据服务。从数据库设计到接口实现，把性能、安全和可维护性一起考虑进去。</p>
+            </div>
+            <div class="service-tags"><span>Java</span><span>Go</span><span>REST API</span></div>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="service-row reveal" href="mailto:flairamos@outlook.com?subject=Full-stack%20Delivery%20Inquiry">
+            <span class="service-num">02</span>
+            <div class="service-main">
+              <h3>全栈应用交付 <span>Full-stack Delivery</span></h3>
+              <p>从 Vue 页面到后端接口的完整交付。适合官网、后台管理、MVP、内部工具与 Web 应用。</p>
+            </div>
+            <div class="service-tags"><span>Vue</span><span>Java</span><span>Go</span></div>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="service-row reveal" href="mailto:flairamos@outlook.com?subject=Graduation%20Project%20Support">
+            <span class="service-num">03</span>
+            <div class="service-main">
+              <h3>毕业设计支持 <span>Graduation Projects</span></h3>
+              <p>选题梳理、系统设计、核心功能实现、部署与答辩文档建议。按你的节奏推进，也支持代码讲解。</p>
+            </div>
+            <div class="service-tags"><span>选题</span><span>实现</span><span>讲解</span></div>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="service-row reveal" href="mailto:flairamos@outlook.com?subject=Technical%20Consulting">
+            <span class="service-num">04</span>
+            <div class="service-main">
+              <h3>技术咨询与排障 <span>Consulting &amp; Debugging</span></h3>
+              <p>架构评审、部署排障、性能与代码问题定位。也欢迎聊聊学习路线、项目取舍和职业方向。</p>
+            </div>
+            <div class="service-tags"><span>Review</span><span>Linux</span><span>Debug</span></div>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="service-foot reveal">
+          <p><span class="status-dot"></span> 远程优先 · 需求清晰后给排期 · 学生项目可指导完成</p>
+          <a class="button button--light" href="mailto:flairamos@outlook.com">
+            <span>Tell me what you're building</span>
+            <span class="button-icon" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / PROJECT -->
+    <section class="section projects" id="project" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-kicker reveal">
+          <span class="section-index">04</span>
+          <span>PROJECTS</span>
+          <span class="kicker-line" aria-hidden="true"></span>
+          <span class="kicker-note">Selected experiments &amp; tools</span>
+        </div>
+
+        <div class="projects-head">
+          <h2 class="display-title reveal" id="projects-title">
+            Built, shipped,<br>
+            <em>open-sourced.</em>
+          </h2>
+          <div class="projects-side reveal">
+            <div class="sync-state" aria-live="polite">
+              <span class="sync-dot" id="sync-dot"></span>
+              <span class="micro-label" id="sync-state">LIVE FROM GITHUB</span>
+              <span class="sync-detail" id="sync-detail">正在连接…</span>
+            </div>
+            <p>项目数据直接来自 GitHub。页面会优先读取最新仓库信息，网络受限时自动回退到本地快照。</p>
+            <a class="text-link" href="https://github.com/flairamos?tab=repositories" target="_blank" rel="noopener noreferrer">
+              <span>github.com/flairamos</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-toolbar reveal">
+          <div class="project-filters" id="project-filters" role="group" aria-label="按语言筛选项目">
+            <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          </div>
+          <button class="refresh-btn" id="refresh-projects" type="button">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.3 6.7A5.4 5.4 0 1 0 13 10M13.3 2v4.7H8.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Refresh</span>
+          </button>
+        </div>
+
+        <div class="project-grid" id="project-grid" aria-live="polite" aria-busy="true">
+          <article class="project-card project-skeleton" aria-hidden="true"></article>
+          <article class="project-card project-skeleton" aria-hidden="true"></article>
+          <article class="project-card project-skeleton" aria-hidden="true"></article>
+          <article class="project-card project-skeleton" aria-hidden="true"></article>
+        </div>
+
+        <div class="project-empty" id="project-empty" hidden>
+          <p>这个语言暂时没有公开项目。看看全部项目吧。</p>
+          <button type="button" class="text-button" id="reset-filter">查看全部项目 →</button>
+        </div>
+
+        <noscript>
+          <style>
+            #project-grid, .project-toolbar, .sync-state { display: none !important; }
+          </style>
+          <div class="project-noscript">
+            <p>项目列表需要 JavaScript 才能从 GitHub 同步。你也可以直接前往 GitHub 查看全部公开仓库。</p>
+            <a class="button button--ink" href="https://github.com/flairamos?tab=repositories" target="_blank" rel="noopener noreferrer">
+              <span>View on GitHub</span>
+              <span class="button-icon" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </noscript>
+
+        <div class="projects-foot reveal">
+          <p>公开仓库来自 <a href="https://github.com/flairamos?tab=repositories" target="_blank" rel="noopener noreferrer">@flairamos</a>，每周自动生成快照，打开页面时也会尝试实时更新。</p>
+          <a class="button button--ink" href="https://github.com/flairamos?tab=repositories" target="_blank" rel="noopener noreferrer">
+            <span>View all repositories</span>
+            <span class="button-icon" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / REVIEW -->
+    <section class="section review" id="review" aria-labelledby="review-title">
+      <div class="wrap">
+        <div class="section-kicker reveal">
+          <span class="section-index">05</span>
+          <span>REVIEW</span>
+          <span class="kicker-line" aria-hidden="true"></span>
+          <span class="kicker-note">Experience &amp; education</span>
+        </div>
+
+        <div class="review-head">
+          <h2 class="display-title reveal" id="review-title">
+            The road<br>
+            <em>so far.</em>
+          </h2>
+          <p class="section-lead reveal">
+            一边在真实项目里打磨工程能力，一边在学校里补充底层知识。
+            目前的我，正在成为一名更可靠的后端工程师。
+          </p>
+        </div>
+
+        <div class="review-layout">
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <div class="timeline-top">
+                <span class="timeline-type">WORK</span>
+                <span class="timeline-date">PRESENT</span>
+              </div>
+              <h3>Backend Engineer</h3>
+              <p class="timeline-org">A technology company <span>·</span> China</p>
+              <p>在科技公司担任后端工程师，参与服务端功能开发、接口设计与线上问题排查。把需求变成可交付的系统，也在真实环境里学习性能、稳定性与协作。</p>
+              <ul class="timeline-tags"><li>Java</li><li>Go</li><li>API</li><li>Linux</li></ul>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-top">
+                <span class="timeline-type">EDUCATION</span>
+                <span class="timeline-date">PRESENT</span>
+              </div>
+              <h3>North China Institute<br>of Aerospace Engineering</h3>
+              <p class="timeline-org">北华航天工业学院 <span>·</span> Undergraduate</p>
+              <p>在校就读期间持续进行软件开发实践，将课程中的计算机基础与真实项目结合，逐步建立对系统设计、工程规范和团队协作的理解。</p>
+              <ul class="timeline-tags"><li>Computer Science</li><li>Software Engineering</li><li>Practice</li></ul>
+            </article>
+
+            <article class="timeline-item timeline-item--now reveal">
+              <div class="timeline-top">
+                <span class="timeline-type">NOW</span>
+                <span class="timeline-date">ALWAYS LEARNING</span>
+              </div>
+              <h3>Building the next version<br>of myself.</h3>
+              <p>继续深入 Go 工程化、Docker 与自动化部署，同时保持对前端和产品体验的敏感度。下一个目标：做出更简单、更可靠、更耐用的系统。</p>
+              <div class="now-line" aria-hidden="true"><span></span></div>
+            </article>
+          </div>
+
+          <aside class="review-aside reveal">
+            <div class="review-quote">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <blockquote>好的代码不只是能运行，<br>而是让下一个人也愿意读。</blockquote>
+              <span class="quote-credit">— working principle</span>
+            </div>
+            <div class="review-facts">
+              <div><span class="micro-label">CURRENTLY</span><strong>Backend Engineer</strong></div>
+              <div><span class="micro-label">EDUCATION</span><strong>NCIAE · in progress</strong></div>
+              <div><span class="micro-label">NEXT</span><strong>Deeper into Go &amp; cloud-native</strong></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="contact-grid" aria-hidden="true"></div>
+      <div class="wrap contact-inner">
+        <div class="section-kicker section-kicker--light reveal">
+          <span class="section-index">06</span>
+          <span>CONTACT</span>
+          <span class="kicker-line" aria-hidden="true"></span>
+          <span class="kicker-note">Let's make something</span>
+        </div>
+
+        <h2 class="contact-title reveal" id="contact-title">
+          Let's build<br>
+          <em>something real.</em>
+        </h2>
+
+        <div class="contact-bottom">
+          <div class="contact-copy reveal">
+            <p>有项目想推进，有代码卡住了，<br>或者只是想聊聊技术 —— 都欢迎发邮件。</p>
+            <span class="micro-label">开发合作 / 毕业设计 / 技术咨询</span>
+          </div>
+          <div class="contact-action reveal">
+            <a class="contact-mail" href="mailto:flairamos@outlook.com">
+              <span>flairamos@outlook.com</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="contact-links">
+              <a href="https://github.com/flairamos" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+              <a href="https://gitee.com/xvwen" target="_blank" rel="noopener noreferrer">Gitee <span>↗</span></a>
+              <a href="mailto:flairamos@outlook.com">Email <span>↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="brand brand--footer" href="#home" aria-label="flairamos，返回首页">
+          <span class="brand-mark" aria-hidden="true">f</span>
+          <span class="brand-word">flairamos</span>
+        </a>
+        <p>Backend engineer building quiet, reliable systems.<br>Open to good ideas and interesting problems.</p>
+        <div class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#service">Service</a>
+          <a href="#project">Project</a>
+          <a href="#review">Review</a>
+          <a href="articles/技术分享/Go语言后台实现选中式导出excel文件.html">Writing</a>
+        </div>
+      </div>
+
+      <div class="footer-wordmark" aria-hidden="true">FLAIRAMOS</div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> flairamos. Built with HTML, CSS &amp; JavaScript.</span>
+        <span class="footer-bottom-right">
+          <a href="mailto:flairamos@outlook.com">flairamos@outlook.com</a>
+          <a href="#home" class="back-top">Back to top ↑</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

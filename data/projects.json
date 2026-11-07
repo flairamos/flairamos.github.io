@@ -1,0 +1,110 @@
+{
+  "generatedAt": "2026-11-07T06:20:00Z",
+  "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
+  "projects": [
+    {
+      "name": "jt808-2019-gateway",
+      "description": "JT808-2019 protocol parser with verification included",
+      "html_url": "https://github.com/flairamos/jt808-2019-gateway",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-10-19T12:00:19Z",
+      "topics": ["jt808", "gateway", "protocol"],
+      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "fork": false
+    },
+    {
+      "name": "awesome-skills",
+      "description": "Share useful skills",
+      "html_url": "https://github.com/flairamos/awesome-skills",
+      "homepage": null,
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-10-22T08:53:54Z",
+      "topics": ["skills", "tooling"],
+      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "fork": false
+    },
+    {
+      "name": "ufiber",
+      "description": "the tool of fiber frame",
+      "html_url": "https://github.com/flairamos/ufiber",
+      "homepage": null,
+      "language": "Shell",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2025-06-24T02:58:47Z",
+      "topics": ["fiber", "golang", "tool"],
+      "license": { "spdx_id": "Apache-2.0", "name": "Apache License 2.0" },
+      "fork": false
+    },
+    {
+      "name": "goutil",
+      "description": "Golang language widget",
+      "html_url": "https://github.com/flairamos/goutil",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2025-04-23T07:09:30Z",
+      "topics": ["go", "utility"],
+      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "fork": false
+    },
+    {
+      "name": "filebrowser-api",
+      "description": "The plug-in comes from filebrowser, and uses the Go language to implement the API to upload and download files",
+      "html_url": "https://github.com/flairamos/filebrowser-api",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2025-04-06T09:52:43Z",
+      "topics": ["filebrowser", "api", "go"],
+      "license": { "spdx_id": "Apache-2.0", "name": "Apache License 2.0" },
+      "fork": false
+    },
+    {
+      "name": "fiberserve",
+      "description": "the fiber frame of go language",
+      "html_url": "https://github.com/flairamos/fiberserve",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2024-11-09T09:17:07Z",
+      "topics": ["fiber", "architecture", "go"],
+      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "fork": false
+    },
+    {
+      "name": "ginserve",
+      "description": "A GIN-based project architecture",
+      "html_url": "https://github.com/flairamos/ginserve",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2024-08-13T01:26:18Z",
+      "topics": ["gin", "architecture", "go"],
+      "license": { "spdx_id": "Apache-2.0", "name": "Apache License 2.0" },
+      "fork": false
+    },
+    {
+      "name": "go-component",
+      "description": "go language usefull component",
+      "html_url": "https://github.com/flairamos/go-component",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "pushed_at": "2024-04-01T09:07:18Z",
+      "topics": ["go", "component"],
+      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "fork": false
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+.preview/
+.DS_Store
+Thumbs.db
+*.log
