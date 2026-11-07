@@ -1,18 +1,50 @@
 {
-  "generatedAt": "2026-11-07T06:20:00Z",
+  "generatedAt": "2026-11-07T17:44:57.297Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
     {
-      "name": "jt808-2019-gateway",
-      "description": "JT808-2019 protocol parser with verification included",
-      "html_url": "https://github.com/flairamos/jt808-2019-gateway",
+      "name": "dsh-session-del",
+      "description": "DeepSeek Harness plugin: delete archived Sessions and stale scratch files through a restorable trash.",
+      "html_url": "https://github.com/flairamos/dsh-session-del",
+      "homepage": null,
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-07T17:44:14Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "lovewall",
+      "description": "校园表白墙，晒日常，跳蚤市场集成项目",
+      "html_url": "https://github.com/flairamos/lovewall",
       "homepage": null,
       "language": "Go",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-10-19T12:00:19Z",
-      "topics": ["jt808", "gateway", "protocol"],
-      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "pushed_at": "2026-11-07T12:14:46Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-07T07:03:30Z",
+      "topics": [],
+      "license": null,
       "fork": false
     },
     {
@@ -24,8 +56,27 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "pushed_at": "2026-10-22T08:53:54Z",
-      "topics": ["skills", "tooling"],
-      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "jt808-2019-gateway",
+      "description": "JT808-2019 protocol parser with verification included",
+      "html_url": "https://github.com/flairamos/jt808-2019-gateway",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-10-19T12:00:19Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
       "fork": false
     },
     {
@@ -37,8 +88,11 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "pushed_at": "2025-06-24T02:58:47Z",
-      "topics": ["fiber", "golang", "tool"],
-      "license": { "spdx_id": "Apache-2.0", "name": "Apache License 2.0" },
+      "topics": [],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "name": "Apache License 2.0"
+      },
       "fork": false
     },
     {
@@ -50,8 +104,11 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "pushed_at": "2025-04-23T07:09:30Z",
-      "topics": ["go", "utility"],
-      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
       "fork": false
     },
     {
@@ -63,8 +120,43 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "pushed_at": "2025-04-06T09:52:43Z",
-      "topics": ["filebrowser", "api", "go"],
-      "license": { "spdx_id": "Apache-2.0", "name": "Apache License 2.0" },
+      "topics": [],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "name": "Apache License 2.0"
+      },
+      "fork": false
+    },
+    {
+      "name": "jt808server",
+      "description": "the example demo of jt808 domain server",
+      "html_url": "https://github.com/flairamos/jt808server",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2025-03-26T09:57:17Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "defence_proxy",
+      "description": "Go语言实现频繁访问隔离",
+      "html_url": "https://github.com/flairamos/defence_proxy",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2025-03-21T04:53:00Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
       "fork": false
     },
     {
@@ -76,8 +168,11 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "pushed_at": "2024-11-09T09:17:07Z",
-      "topics": ["fiber", "architecture", "go"],
-      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
       "fork": false
     },
     {
@@ -89,8 +184,11 @@
       "stargazers_count": 1,
       "forks_count": 0,
       "pushed_at": "2024-08-13T01:26:18Z",
-      "topics": ["gin", "architecture", "go"],
-      "license": { "spdx_id": "Apache-2.0", "name": "Apache License 2.0" },
+      "topics": [],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "name": "Apache License 2.0"
+      },
       "fork": false
     },
     {
@@ -102,8 +200,11 @@
       "stargazers_count": 2,
       "forks_count": 0,
       "pushed_at": "2024-04-01T09:07:18Z",
-      "topics": ["go", "component"],
-      "license": { "spdx_id": "MIT", "name": "MIT License" },
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
       "fork": false
     }
   ]
