@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-11-07T17:44:57.297Z",
+  "generatedAt": "2026-11-07T21:51:56.837Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "lol-slimming",
+      "description": "Lose weight for LoL, get rid of WeGame troubles",
+      "html_url": "https://github.com/flairamos/lol-slimming",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-07T18:42:36Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
     {
       "name": "dsh-session-del",
       "description": "DeepSeek Harness plugin: delete archived Sessions and stale scratch files through a restorable trash.",
@@ -10,12 +26,25 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-07T17:44:14Z",
+      "pushed_at": "2026-11-07T17:46:15Z",
       "topics": [],
       "license": {
         "spdx_id": "MIT",
         "name": "MIT License"
       },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-07T17:44:58Z",
+      "topics": [],
+      "license": null,
       "fork": false
     },
     {
@@ -32,19 +61,6 @@
         "spdx_id": "MIT",
         "name": "MIT License"
       },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-07T07:03:30Z",
-      "topics": [],
-      "license": null,
       "fork": false
     },
     {
