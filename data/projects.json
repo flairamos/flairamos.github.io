@@ -1,7 +1,36 @@
 {
-  "generatedAt": "2026-11-07T21:51:56.837Z",
+  "generatedAt": "2026-11-08T06:01:57.804Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "SailMark",
+      "description": "A live-rendering Markdown editor",
+      "html_url": "https://github.com/flairamos/SailMark",
+      "homepage": null,
+      "language": null,
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-08T03:04:08Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-07T21:51:57Z",
+      "topics": [],
+      "license": null,
+      "fork": false
+    },
     {
       "name": "lol-slimming",
       "description": "Lose weight for LoL, get rid of WeGame troubles",
@@ -32,19 +61,6 @@
         "spdx_id": "MIT",
         "name": "MIT License"
       },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-07T17:44:58Z",
-      "topics": [],
-      "license": null,
       "fork": false
     },
     {
