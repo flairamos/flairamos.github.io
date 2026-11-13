@@ -1,18 +1,21 @@
 {
-  "generatedAt": "2026-11-13T06:46:49.838Z",
+  "generatedAt": "2026-11-13T19:43:34.595Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
     {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "name": "RedisLens",
+      "description": "Go + Wails 开发 Windows 桌面版 Redis 可视化管理工具，覆盖功能（连接管理、SCAN 键浏览编辑、TTL、监控仪表盘、命令行控制台、危险命令拦截+二次确认）以及增强功能（大Key分析、慢查询、导入导出、Pub/Sub、深色模式等）。",
+      "html_url": "https://github.com/flairamos/RedisLens",
       "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
+      "language": "Vue",
+      "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-12T19:54:44Z",
+      "pushed_at": "2026-11-13T19:32:37Z",
       "topics": [],
-      "license": null,
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "name": "Apache License 2.0"
+      },
       "fork": false
     },
     {
@@ -23,12 +26,25 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-12T14:02:23Z",
+      "pushed_at": "2026-11-13T11:14:22Z",
       "topics": [],
       "license": {
         "spdx_id": "MIT",
         "name": "MIT License"
       },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-13T06:46:50Z",
+      "topics": [],
+      "license": null,
       "fork": false
     },
     {
