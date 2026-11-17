@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T07:55:47.610Z",
+  "generatedAt": "2026-11-17T20:56:07.455Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
     {
@@ -10,7 +10,7 @@
       "language": "Go",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-17T07:28:32Z",
+      "pushed_at": "2026-11-17T16:09:02Z",
       "topics": [
         "bug-tracking",
         "ci-cd",
@@ -28,16 +28,19 @@
       "fork": false
     },
     {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "name": "SailMark",
+      "description": "A live-rendering Markdown editor",
+      "html_url": "https://github.com/flairamos/SailMark",
       "homepage": null,
-      "language": "CSS",
+      "language": "Go",
       "stargazers_count": 1,
       "forks_count": 0,
-      "pushed_at": "2026-11-16T22:02:42Z",
+      "pushed_at": "2026-11-17T16:05:55Z",
       "topics": [],
-      "license": null,
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
       "fork": false
     },
     {
@@ -48,12 +51,25 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-16T11:42:42Z",
+      "pushed_at": "2026-11-17T12:05:01Z",
       "topics": [],
       "license": {
         "spdx_id": "MIT",
         "name": "MIT License"
       },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-17T07:55:48Z",
+      "topics": [],
+      "license": null,
       "fork": false
     },
     {
@@ -69,22 +85,6 @@
       "license": {
         "spdx_id": "Apache-2.0",
         "name": "Apache License 2.0"
-      },
-      "fork": false
-    },
-    {
-      "name": "SailMark",
-      "description": "A live-rendering Markdown editor",
-      "html_url": "https://github.com/flairamos/SailMark",
-      "homepage": null,
-      "language": "Go",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-08T14:37:11Z",
-      "topics": [],
-      "license": {
-        "spdx_id": "MIT",
-        "name": "MIT License"
       },
       "fork": false
     },
