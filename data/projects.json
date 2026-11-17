@@ -1,7 +1,45 @@
 {
-  "generatedAt": "2026-11-16T22:02:40.975Z",
+  "generatedAt": "2026-11-17T07:55:47.610Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "gitwo",
+      "description": "自包含的**迷你 Git 服务端 + CI/CD 平台**：一个 Go 二进制，一个端口（默认 **9527**），提供 Git 托管、Web 管理界面、用户/组织权限、push 触发的构建流水线，以及部署站点的托管访问。",
+      "html_url": "https://github.com/flairamos/gitwo",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-17T07:28:32Z",
+      "topics": [
+        "bug-tracking",
+        "ci-cd",
+        "code-review",
+        "devops",
+        "git-server",
+        "golang",
+        "push-to-deploy",
+        "self-hosted"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "name": "Apache License 2.0"
+      },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-16T22:02:42Z",
+      "topics": [],
+      "license": null,
+      "fork": false
+    },
     {
       "name": "container-hub",
       "description": "Collecting awesome sites",
@@ -16,19 +54,6 @@
         "spdx_id": "MIT",
         "name": "MIT License"
       },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-16T06:30:50Z",
-      "topics": [],
-      "license": null,
       "fork": false
     },
     {
