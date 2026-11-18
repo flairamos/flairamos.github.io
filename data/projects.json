@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T20:56:07.455Z",
+  "generatedAt": "2026-11-18T07:29:44.624Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
     {
@@ -10,7 +10,7 @@
       "language": "Go",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-17T16:09:02Z",
+      "pushed_at": "2026-11-18T02:57:19Z",
       "topics": [
         "bug-tracking",
         "ci-cd",
@@ -25,6 +25,19 @@
         "spdx_id": "Apache-2.0",
         "name": "Apache License 2.0"
       },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-17T20:56:08Z",
+      "topics": [],
+      "license": null,
       "fork": false
     },
     {
@@ -57,19 +70,6 @@
         "spdx_id": "MIT",
         "name": "MIT License"
       },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-17T07:55:48Z",
-      "topics": [],
-      "license": null,
       "fork": false
     },
     {
