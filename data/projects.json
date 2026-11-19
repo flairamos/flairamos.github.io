@@ -1,18 +1,21 @@
 {
-  "generatedAt": "2026-11-19T07:26:40.812Z",
+  "generatedAt": "2026-11-19T20:38:12.024Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
     {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
+      "name": "pgmesh",
+      "description": "PgMesh 数据库集群以独立中间件形态部署，业务侧只需连接中间件即可获得与连接 PostgreSQL 完全一致的体验；中间件负责将数据操作同步至所有已接入的 PostgreSQL 节点，并在节点故障时持久化保存待执行数据，定期重试、多次失败自动告警，从而在不改动数据库任何配置的前提下，实现多节点数据的最终一致与可观测的集群运维。",
+      "html_url": "https://github.com/flairamos/pgmesh",
+      "homepage": "https://flairamos.github.io/pgmesh/",
+      "language": "Go",
+      "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-18T20:32:00Z",
+      "pushed_at": "2026-11-19T20:05:28Z",
       "topics": [],
-      "license": null,
+      "license": {
+        "spdx_id": "BSD-3-Clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License"
+      },
       "fork": false
     },
     {
@@ -23,12 +26,25 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-18T11:56:29Z",
+      "pushed_at": "2026-11-19T11:53:48Z",
       "topics": [],
       "license": {
         "spdx_id": "MIT",
         "name": "MIT License"
       },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-19T07:26:41Z",
+      "topics": [],
+      "license": null,
       "fork": false
     },
     {
