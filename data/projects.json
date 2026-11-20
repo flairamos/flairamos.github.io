@@ -1,7 +1,20 @@
 {
-  "generatedAt": "2026-11-19T20:38:12.024Z",
+  "generatedAt": "2026-11-20T07:16:32.111Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-19T20:38:13Z",
+      "topics": [],
+      "license": null,
+      "fork": false
+    },
     {
       "name": "pgmesh",
       "description": "PgMesh 数据库集群以独立中间件形态部署，业务侧只需连接中间件即可获得与连接 PostgreSQL 完全一致的体验；中间件负责将数据操作同步至所有已接入的 PostgreSQL 节点，并在节点故障时持久化保存待执行数据，定期重试、多次失败自动告警，从而在不改动数据库任何配置的前提下，实现多节点数据的最终一致与可观测的集群运维。",
@@ -35,23 +48,10 @@
       "fork": false
     },
     {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-19T07:26:41Z",
-      "topics": [],
-      "license": null,
-      "fork": false
-    },
-    {
       "name": "gitwo",
       "description": "自包含的**迷你 Git 服务端 + CI/CD 平台**：一个 Go 二进制，一个端口（默认 **9527**），提供 Git 托管、Web 管理界面、用户/组织权限、push 触发的构建流水线，以及部署站点的托管访问。",
       "html_url": "https://github.com/flairamos/gitwo",
-      "homepage": null,
+      "homepage": "https://flairamos.github.io/gitwo/",
       "language": "Go",
       "stargazers_count": 0,
       "forks_count": 0,
