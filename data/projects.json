@@ -1,18 +1,42 @@
 {
-  "generatedAt": "2026-11-22T06:49:07.482Z",
+  "generatedAt": "2026-11-22T19:41:17.963Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
     {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
+      "name": "hearth",
+      "description": "Terminal chat TUI + browser GUI + headless agent for local LLMs — two Go binaries, 13 tools, memory, auto-compaction. Auto-discovers Ollama, LM Studio, llama.cpp, vLLM. No cloud — your data stays home.",
+      "html_url": "https://github.com/flairamos/hearth",
+      "homepage": "https://flairamos.github.io/hearth/",
+      "language": "Go",
+      "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-21T19:16:50Z",
-      "topics": [],
-      "license": null,
+      "pushed_at": "2026-11-22T15:14:37Z",
+      "topics": [
+        "agent",
+        "ai-tools",
+        "bubbletea",
+        "chatbot",
+        "cli",
+        "cross-platform",
+        "go",
+        "llm",
+        "llm-agent",
+        "llm-inference",
+        "local-ai",
+        "local-llm",
+        "offline",
+        "ollama",
+        "openai-compatible",
+        "privacy",
+        "self-hosted",
+        "terminal",
+        "tui",
+        "windows"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
       "fork": false
     },
     {
@@ -23,12 +47,25 @@
       "language": "JavaScript",
       "stargazers_count": 0,
       "forks_count": 0,
-      "pushed_at": "2026-11-21T11:23:56Z",
+      "pushed_at": "2026-11-22T11:39:49Z",
       "topics": [],
       "license": {
         "spdx_id": "MIT",
         "name": "MIT License"
       },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-22T06:49:08Z",
+      "topics": [],
+      "license": null,
       "fork": false
     },
     {
