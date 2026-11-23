@@ -1,7 +1,48 @@
 {
-  "generatedAt": "2026-11-23T07:40:16.653Z",
+  "generatedAt": "2026-11-23T23:54:13.563Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "container-hub",
+      "description": "Collecting awesome sites",
+      "html_url": "https://github.com/flairamos/container-hub",
+      "homepage": null,
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-23T13:11:23Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "gitwo",
+      "description": "自包含的**迷你 Git 服务端 + CI/CD 平台**：一个 Go 二进制，一个端口（默认 **9527**），提供 Git 托管、Web 管理界面、用户/组织权限、push 触发的构建流水线，以及部署站点的托管访问。",
+      "html_url": "https://github.com/flairamos/gitwo",
+      "homepage": "https://flairamos.github.io/gitwo/",
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-23T08:39:12Z",
+      "topics": [
+        "bug-tracking",
+        "ci-cd",
+        "code-review",
+        "devops",
+        "git-server",
+        "golang",
+        "push-to-deploy",
+        "self-hosted"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "name": "Apache License 2.0"
+      },
+      "fork": false
+    },
     {
       "name": "flairamos.github.io",
       "description": "amos's personal blog",
@@ -10,7 +51,7 @@
       "language": "CSS",
       "stargazers_count": 1,
       "forks_count": 0,
-      "pushed_at": "2026-11-22T19:41:18Z",
+      "pushed_at": "2026-11-23T07:40:17Z",
       "topics": [],
       "license": null,
       "fork": false
@@ -53,47 +94,6 @@
       "fork": false
     },
     {
-      "name": "container-hub",
-      "description": "Collecting awesome sites",
-      "html_url": "https://github.com/flairamos/container-hub",
-      "homepage": null,
-      "language": "JavaScript",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "pushed_at": "2026-11-22T11:39:49Z",
-      "topics": [],
-      "license": {
-        "spdx_id": "MIT",
-        "name": "MIT License"
-      },
-      "fork": false
-    },
-    {
-      "name": "gitwo",
-      "description": "自包含的**迷你 Git 服务端 + CI/CD 平台**：一个 Go 二进制，一个端口（默认 **9527**），提供 Git 托管、Web 管理界面、用户/组织权限、push 触发的构建流水线，以及部署站点的托管访问。",
-      "html_url": "https://github.com/flairamos/gitwo",
-      "homepage": "https://flairamos.github.io/gitwo/",
-      "language": "Go",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "pushed_at": "2026-11-20T10:17:50Z",
-      "topics": [
-        "bug-tracking",
-        "ci-cd",
-        "code-review",
-        "devops",
-        "git-server",
-        "golang",
-        "push-to-deploy",
-        "self-hosted"
-      ],
-      "license": {
-        "spdx_id": "Apache-2.0",
-        "name": "Apache License 2.0"
-      },
-      "fork": false
-    },
-    {
       "name": "pgmesh",
       "description": "PgMesh 数据库集群以独立中间件形态部署，业务侧只需连接中间件即可获得与连接 PostgreSQL 完全一致的体验；中间件负责将数据操作同步至所有已接入的 PostgreSQL 节点，并在节点故障时持久化保存待执行数据，定期重试、多次失败自动告警，从而在不改动数据库任何配置的前提下，实现多节点数据的最终一致与可观测的集群运维。",
       "html_url": "https://github.com/flairamos/pgmesh",
@@ -111,14 +111,21 @@
     },
     {
       "name": "SailMark",
-      "description": "A live-rendering Markdown editor",
+      "description": "A lightweight, Typora-like Markdown editor built with Go and Gio. Click a paragraph to edit its source in place; click away to render.",
       "html_url": "https://github.com/flairamos/SailMark",
       "homepage": null,
       "language": "Go",
       "stargazers_count": 1,
       "forks_count": 0,
       "pushed_at": "2026-11-17T16:05:55Z",
-      "topics": [],
+      "topics": [
+        "gio",
+        "gioui",
+        "go",
+        "markdown",
+        "markdown-editor",
+        "vditor"
+      ],
       "license": {
         "spdx_id": "MIT",
         "name": "MIT License"
@@ -134,7 +141,17 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "pushed_at": "2026-11-13T19:32:37Z",
-      "topics": [],
+      "topics": [
+        "database-gui",
+        "desktop-app",
+        "go",
+        "redis",
+        "redis-client",
+        "redis-gui",
+        "vue3",
+        "wails",
+        "windows"
+      ],
       "license": {
         "spdx_id": "Apache-2.0",
         "name": "Apache License 2.0"
