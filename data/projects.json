@@ -1,7 +1,20 @@
 {
-  "generatedAt": "2026-11-24T22:27:46.497Z",
+  "generatedAt": "2026-11-25T08:35:10.833Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-24T22:27:47Z",
+      "topics": [],
+      "license": null,
+      "fork": false
+    },
     {
       "name": "container-hub",
       "description": "Collecting awesome sites",
@@ -16,19 +29,6 @@
         "spdx_id": "MIT",
         "name": "MIT License"
       },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-24T09:55:10Z",
-      "topics": [],
-      "license": null,
       "fork": false
     },
     {
