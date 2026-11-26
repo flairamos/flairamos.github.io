@@ -1,7 +1,77 @@
 {
-  "generatedAt": "2026-11-26T08:18:39.663Z",
+  "generatedAt": "2026-11-26T21:32:46.296Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "lumen",
+      "description": "",
+      "html_url": "https://github.com/flairamos/lumen",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-26T14:05:24Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "container-hub",
+      "description": "Collecting awesome sites",
+      "html_url": "https://github.com/flairamos/container-hub",
+      "homepage": null,
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-26T12:51:32Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "gitwo",
+      "description": "自包含的**迷你 Git 服务端 + CI/CD 平台**：一个 Go 二进制，一个端口（默认 **9527**），提供 Git 托管、Web 管理界面、用户/组织权限、push 触发的构建流水线，以及部署站点的托管访问。",
+      "html_url": "https://github.com/flairamos/gitwo",
+      "homepage": "https://flairamos.github.io/gitwo/",
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-26T09:07:45Z",
+      "topics": [
+        "bug-tracking",
+        "ci-cd",
+        "code-review",
+        "devops",
+        "git-server",
+        "golang",
+        "push-to-deploy",
+        "self-hosted"
+      ],
+      "license": {
+        "spdx_id": "Apache-2.0",
+        "name": "Apache License 2.0"
+      },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-26T08:18:40Z",
+      "topics": [],
+      "license": null,
+      "fork": false
+    },
     {
       "name": "RedisLens",
       "description": "Go + Wails 开发 Windows 桌面版 Redis 可视化管理工具，覆盖功能（连接管理、SCAN 键浏览编辑、TTL、监控仪表盘、命令行控制台、危险命令拦截+二次确认）以及增强功能（大Key分析、慢查询、导入导出、Pub/Sub、深色模式等）。",
@@ -21,60 +91,6 @@
         "vue3",
         "wails",
         "windows"
-      ],
-      "license": {
-        "spdx_id": "Apache-2.0",
-        "name": "Apache License 2.0"
-      },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-25T21:43:15Z",
-      "topics": [],
-      "license": null,
-      "fork": false
-    },
-    {
-      "name": "container-hub",
-      "description": "Collecting awesome sites",
-      "html_url": "https://github.com/flairamos/container-hub",
-      "homepage": null,
-      "language": "JavaScript",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "pushed_at": "2026-11-25T13:11:36Z",
-      "topics": [],
-      "license": {
-        "spdx_id": "MIT",
-        "name": "MIT License"
-      },
-      "fork": false
-    },
-    {
-      "name": "gitwo",
-      "description": "自包含的**迷你 Git 服务端 + CI/CD 平台**：一个 Go 二进制，一个端口（默认 **9527**），提供 Git 托管、Web 管理界面、用户/组织权限、push 触发的构建流水线，以及部署站点的托管访问。",
-      "html_url": "https://github.com/flairamos/gitwo",
-      "homepage": "https://flairamos.github.io/gitwo/",
-      "language": "Go",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "pushed_at": "2026-11-24T02:07:07Z",
-      "topics": [
-        "bug-tracking",
-        "ci-cd",
-        "code-review",
-        "devops",
-        "git-server",
-        "golang",
-        "push-to-deploy",
-        "self-hosted"
       ],
       "license": {
         "spdx_id": "Apache-2.0",
