@@ -1,7 +1,81 @@
 {
-  "generatedAt": "2026-11-27T08:35:09.409Z",
+  "generatedAt": "2026-11-27T21:17:22.121Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "container-hub",
+      "description": "Collecting awesome sites",
+      "html_url": "https://github.com/flairamos/container-hub",
+      "homepage": null,
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-27T12:45:00Z",
+      "topics": [],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "dsh-hub",
+      "description": "Curated index of DeepSeek Harness (DSH) plugins that actually install — every repo is checked for a real dsh.bundle.patch and statically screened for risky install scripts. Updated weekly.",
+      "html_url": "https://github.com/flairamos/dsh-hub",
+      "homepage": "https://flairamos.github.io/dsh-hub/",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-27T11:20:39Z",
+      "topics": [
+        "deepseek-harness",
+        "deepseek-harness-plugin",
+        "dsh-plugin",
+        "dsh-plugin-market",
+        "dsh-plugins"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "SailMark",
+      "description": "A lightweight, Typora-like Markdown editor built with Go and Gio. Click a paragraph to edit its source in place; click away to render.",
+      "html_url": "https://github.com/flairamos/SailMark",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-27T09:08:16Z",
+      "topics": [
+        "gio",
+        "gioui",
+        "go",
+        "markdown",
+        "markdown-editor",
+        "vditor"
+      ],
+      "license": {
+        "spdx_id": "MIT",
+        "name": "MIT License"
+      },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-27T08:35:10Z",
+      "topics": [],
+      "license": null,
+      "fork": false
+    },
     {
       "name": "lumen",
       "description": "Lumen is a minimal, keyboard-first Go desktop code editor for Windows, built with Gio. The editor stays full-width while every panel is an overlay; it ships with gopls LSP, Delve debugging, a ConPTY terminal, Git status, code folding and fast fuzzy search.",
@@ -44,35 +118,6 @@
       "stargazers_count": 0,
       "forks_count": 0,
       "pushed_at": "2026-11-27T01:09:18Z",
-      "topics": [],
-      "license": {
-        "spdx_id": "MIT",
-        "name": "MIT License"
-      },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-26T21:32:47Z",
-      "topics": [],
-      "license": null,
-      "fork": false
-    },
-    {
-      "name": "container-hub",
-      "description": "Collecting awesome sites",
-      "html_url": "https://github.com/flairamos/container-hub",
-      "homepage": null,
-      "language": "JavaScript",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "pushed_at": "2026-11-26T12:51:32Z",
       "topics": [],
       "license": {
         "spdx_id": "MIT",
@@ -181,29 +226,6 @@
       "license": {
         "spdx_id": "BSD-3-Clause",
         "name": "BSD 3-Clause \"New\" or \"Revised\" License"
-      },
-      "fork": false
-    },
-    {
-      "name": "SailMark",
-      "description": "A lightweight, Typora-like Markdown editor built with Go and Gio. Click a paragraph to edit its source in place; click away to render.",
-      "html_url": "https://github.com/flairamos/SailMark",
-      "homepage": null,
-      "language": "Go",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-17T16:05:55Z",
-      "topics": [
-        "gio",
-        "gioui",
-        "go",
-        "markdown",
-        "markdown-editor",
-        "vditor"
-      ],
-      "license": {
-        "spdx_id": "MIT",
-        "name": "MIT License"
       },
       "fork": false
     },
