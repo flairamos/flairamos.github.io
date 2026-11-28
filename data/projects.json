@@ -1,7 +1,54 @@
 {
-  "generatedAt": "2026-11-27T21:17:22.121Z",
+  "generatedAt": "2026-11-28T07:49:51.871Z",
   "source": "https://api.github.com/users/flairamos/repos?per_page=100&sort=pushed",
   "projects": [
+    {
+      "name": "atomnet",
+      "description": "End-to-end encrypted one-to-one messaging over self-hosted UDP relays. Pure Go core (DTLS 1.2 + Noise IK), Windows desktop (Wails), Android (WebView + on-device Go), CLI, file transfer and RTP passthrough. No accounts, no server-side content storage.",
+      "html_url": "https://github.com/flairamos/atomnet",
+      "homepage": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "pushed_at": "2026-11-28T03:21:26Z",
+      "topics": [
+        "android",
+        "cli",
+        "cryptography",
+        "dtls",
+        "e2ee",
+        "end-to-end-encryption",
+        "file-transfer",
+        "go",
+        "golang",
+        "noise-protocol",
+        "p2p",
+        "relay-server",
+        "rtp",
+        "secure-messaging",
+        "self-hosted",
+        "udp",
+        "wails"
+      ],
+      "license": {
+        "spdx_id": "AGPL-3.0",
+        "name": "GNU Affero General Public License v3.0"
+      },
+      "fork": false
+    },
+    {
+      "name": "flairamos.github.io",
+      "description": "amos's personal blog",
+      "html_url": "https://github.com/flairamos/flairamos.github.io",
+      "homepage": null,
+      "language": "CSS",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "pushed_at": "2026-11-27T21:17:23Z",
+      "topics": [],
+      "license": null,
+      "fork": false
+    },
     {
       "name": "container-hub",
       "description": "Collecting awesome sites",
@@ -61,19 +108,6 @@
         "spdx_id": "MIT",
         "name": "MIT License"
       },
-      "fork": false
-    },
-    {
-      "name": "flairamos.github.io",
-      "description": "amos's personal blog",
-      "html_url": "https://github.com/flairamos/flairamos.github.io",
-      "homepage": null,
-      "language": "CSS",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "pushed_at": "2026-11-27T08:35:10Z",
-      "topics": [],
-      "license": null,
       "fork": false
     },
     {
